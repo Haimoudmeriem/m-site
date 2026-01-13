@@ -6,7 +6,6 @@
     <title>Contact - Mivara Communication Digitale</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         /* ========== VARIABLES MIVARA ========== */
         :root {
@@ -82,7 +81,7 @@
             left: 0;
             width: 100%;
             background: var(--white);
-            padding: 0.75rem 1rem; /* Ajouté du padding sur les côtés */
+            padding: 0.75rem 1rem;
             z-index: 1000;
             box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             backdrop-filter: blur(10px);
@@ -98,29 +97,26 @@
             padding: 0;
         }
         
-        /* Logo positionné correctement à gauche */
         .logo-link {
             display: flex;
             align-items: center;
             height: 100%;
-            margin-right: auto; /* Pousse le logo à gauche */
+            margin-right: auto;
         }
         
         .logo-img {
             height: 2.5rem;
             width: auto;
             max-width: 120px;
-            display: block; /* Important pour éviter l'espace blanc sous l'image */
+            display: block;
         }
         
-        /* Menu de navigation à droite */
         .nav-content {
             display: flex;
             align-items: center;
-            gap: 1rem; /* Espace entre logo et menu */
+            gap: 1rem;
         }
         
-        /* Bouton hamburger avancé - positionné à droite */
         .mobile-menu-btn {
             width: 3rem;
             height: 3rem;
@@ -136,7 +132,7 @@
             transition: all 0.3s ease;
             position: relative;
             z-index: 1001;
-            order: 2; /* S'assure qu'il est à droite */
+            order: 2;
         }
         
         .mobile-menu-btn:active {
@@ -147,7 +143,6 @@
             background: var(--accent);
         }
         
-        /* Menu mobile overlay */
         .nav-overlay {
             position: fixed;
             top: 0;
@@ -254,7 +249,6 @@
             padding: 2rem 1rem;
         }
         
-        /* Quick actions */
         .quick-actions {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -305,7 +299,6 @@
             color: var(--gray);
         }
         
-        /* Contact info cards */
         .contact-info-card {
             background: var(--white);
             border-radius: 20px;
@@ -440,7 +433,6 @@
             resize: vertical;
         }
         
-        /* Bouton soumission */
         .submit-btn {
             width: 100%;
             padding: 1.25rem;
@@ -790,7 +782,7 @@
             }
             
             body {
-                padding-bottom: 0; /* Retirer l'espace pour le footer fixe */
+                padding-bottom: 0;
             }
             
             .container {
@@ -799,7 +791,7 @@
             }
             
             .navbar {
-                padding: 0.75rem 2rem; /* Plus d'espace sur tablette */
+                padding: 0.75rem 2rem;
             }
             
             .hero-contact {
@@ -821,7 +813,6 @@
                 gap: 2rem;
             }
             
-            /* Afficher les boutons dans le hero sur tablette+ */
             .hero-actions {
                 display: flex;
                 gap: 0.75rem;
@@ -866,7 +857,6 @@
                 transform: scale(0.95);
             }
             
-            /* Cacher le footer mobile sur tablette+ */
             .mobile-contact-footer {
                 display: none !important;
             }
@@ -903,7 +893,7 @@
                 display: flex !important;
                 gap: 1.5rem;
                 align-items: center;
-                order: 1; /* Menu à droite du logo */
+                order: 1;
             }
             
             .nav-links a {
@@ -958,10 +948,31 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        /* ========== SUCCESS/ERROR MESSAGES ========== */
+        .form-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .form-error {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--error);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            margin-top: 1rem;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation Mobile Avancée - POSITIONNEMENT CORRIGÉ -->
+    <!-- Navigation Mobile Avancée -->
     <nav class="navbar">
         <div class="nav-container">
             <!-- Logo à GAUCHE -->
@@ -990,13 +1001,12 @@
         <div class="nav-overlay" id="navOverlay"></div>
     </nav>
 
-    <!-- Hero Section (SANS BOUTONS) -->
+    <!-- Hero Section -->
     <section class="hero-contact">
         <div class="container">
             <div class="hero-content animate-fade-in">
                 <h1>Contactez-nous</h1>
                 <p>Notre équipe est à votre écoute pour concrétiser vos projets digitaux. Réponse garantie sous 24h.</p>
-                <!-- Les boutons sont retirés ici et placés dans le footer mobile -->
             </div>
         </div>
     </section>
@@ -1076,14 +1086,20 @@
                 </ul>
             </div>
             
-            <!-- Formulaire de contact avec option d'Audit Gratuit -->
+            <!-- FORMULAIRE CORRIGÉ POUR FORMSPREE -->
             <div class="form-card animate-slide-up" id="contact-form">
                 <div class="form-header">
                     <h2>Envoyez-nous un message</h2>
                     <p>Remplissez ce formulaire et nous vous répondrons rapidement.</p>
                 </div>
                 
-                <form id="contactForm" action="send-mail.php" method="POST">
+                <!-- IMPORTANT : REMPLACEZ "VOTRE_ID_FORMSPREE" par votre vrai ID Formspree -->
+                <form id="contactForm" action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
+                    <!-- Champs cachés Formspree -->
+                    <input type="hidden" name="_subject" value="📧 Nouveau message depuis Mivara">
+                    <input type="hidden" name="_language" value="fr">
+                    <input type="text" name="_gotcha" style="display:none">
+                    
                     <div class="form-group">
                         <label class="form-label" for="name">Nom complet <span>*</span></label>
                         <input type="text" id="name" name="name" class="form-input" required 
@@ -1125,7 +1141,13 @@
                     </button>
                 </form>
                 
-                <div id="formMessage" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 10px; text-align: center;"></div>
+                <!-- Messages de succès/erreur -->
+                <div id="formSuccess" class="form-success" style="display: none;">
+                    ✅ Message envoyé avec succès ! Nous vous répondrons sous 24h.
+                </div>
+                <div id="formError" class="form-error" style="display: none;">
+                    ❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.
+                </div>
             </div>
         </div>
     </section>
@@ -1212,7 +1234,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="images/logo1.png" alt="Mivara Logo">
+                    <img src="logo1.png" alt="Mivara Logo">
                     <p>Agence de communication digitale spécialisée</p>
                 </div>
                 
@@ -1254,9 +1276,8 @@
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; 2023 Mivara Communication Digitale. Tous droits réservés.</p>
+                    <p>&copy; <span id="currentYear"></span> Mivara Communication Digitale. Tous droits réservés.</p>
                     <p>contact@mivara.com | +33 1 23 45 67 89</p>
-                    <p><a href="privacy.html" style="color: rgba(255,255,255,0.5); text-decoration: none;">Politique de confidentialité</a></p>
                 </div>
             </div>
         </div>
@@ -1281,7 +1302,7 @@
     </div>
 
     <script>
-        // Navigation mobile avancée - CORRIGÉ POUR LE POSITIONNEMENT
+        // ========== NAVIGATION MOBILE ==========
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navOverlay = document.getElementById('navOverlay');
         const navLinks = document.getElementById('navLinks');
@@ -1294,7 +1315,6 @@
             navOverlay.classList.toggle('active');
             document.body.style.overflow = !isExpanded ? 'hidden' : '';
             
-            // Animation du bouton hamburger
             if (!isExpanded) {
                 mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
             } else {
@@ -1305,10 +1325,9 @@
         mobileMenuBtn.addEventListener('click', toggleMenu);
         navOverlay.addEventListener('click', toggleMenu);
         
-        // Fermer le menu en cliquant sur un lien
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth < 1024) { // Seulement sur mobile
+                if (window.innerWidth < 1024) {
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     mobileMenuBtn.classList.remove('active');
                     navOverlay.classList.remove('active');
@@ -1318,19 +1337,15 @@
             });
         });
         
-        // Afficher/masquer le footer mobile selon la taille d'écran
+        // ========== FOOTER MOBILE RESPONSIVE ==========
         function toggleMobileFooter() {
             if (window.innerWidth < 768) {
                 mobileFooter.style.display = 'grid';
-                // Supprimer les boutons du hero sur mobile
                 const heroActions = document.querySelector('.hero-actions');
-                if (heroActions) {
-                    heroActions.remove();
-                }
+                if (heroActions) heroActions.remove();
             } else {
                 mobileFooter.style.display = 'none';
                 
-                // Ajouter les boutons dans le hero sur tablette+
                 const heroContent = document.querySelector('.hero-content');
                 if (!document.querySelector('.hero-actions')) {
                     const heroActions = document.createElement('div');
@@ -1351,11 +1366,10 @@
             }
         }
         
-        // Initialiser et surveiller les changements de taille
         toggleMobileFooter();
         window.addEventListener('resize', toggleMobileFooter);
         
-        // FAQ Accordéon
+        // ========== FAQ ACCORDÉON ==========
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
@@ -1363,85 +1377,93 @@
             });
         });
         
-        // Gestion du formulaire
+        // ========== FORMULAIRE FORMSPREE ==========
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
         
         if (contactForm) {
             contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                // Validation basique
+                // Validation
                 const name = document.getElementById('name').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const message = document.getElementById('message').value.trim();
                 
                 if (!name || !email || !message) {
-                    showMessage('Veuillez remplir tous les champs obligatoires.', 'error');
+                    showError('Veuillez remplir tous les champs obligatoires.');
                     return;
                 }
                 
-                // Validation email
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
-                    showMessage('Veuillez entrer une adresse email valide.', 'error');
+                    showError('Veuillez entrer une adresse email valide.');
                     return;
                 }
                 
-                // Envoi réel du formulaire
+                // Envoi avec Formspree
                 submitBtn.innerHTML = '<div class="loading-spinner"></div>';
                 submitBtn.classList.add('loading');
                 submitBtn.disabled = true;
+                hideMessages();
                 
                 try {
                     const formData = new FormData(contactForm);
                     
-                    // Envoyer les données via Fetch API
-                    const response = await fetch('send-mail.php', {
+                    // IMPORTANT : Ici Formspree fait tout le travail
+                    const response = await fetch(contactForm.action, {
                         method: 'POST',
-                        body: formData
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
                     });
                     
-                    const result = await response.text();
-                    
-                    if (response.ok && result.includes('success')) {
-                        showMessage('✅ Message envoyé avec succès ! Nous vous répondrons sous 24h.', 'success');
+                    if (response.ok) {
+                        showSuccess();
                         contactForm.reset();
                     } else {
-                        showMessage('❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.', 'error');
+                        showError('Erreur lors de l\'envoi. Veuillez réessayer.');
                     }
                 } catch (error) {
-                    showMessage('❌ Erreur réseau. Veuillez vérifier votre connexion.', 'error');
+                    showError('Erreur réseau. Vérifiez votre connexion.');
                 } finally {
-                    // Réinitialiser le bouton
                     submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
                     submitBtn.classList.remove('loading');
                     submitBtn.disabled = false;
-                    
-                    // Scroll vers le message
-                    formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             });
         }
         
-        function showMessage(text, type) {
-            formMessage.textContent = text;
-            formMessage.style.display = 'block';
-            formMessage.style.background = type === 'success' 
-                ? 'rgba(16, 185, 129, 0.1)' 
-                : 'rgba(239, 68, 68, 0.1)';
-            formMessage.style.color = type === 'success' ? '#10b981' : '#ef4444';
-            formMessage.style.border = type === 'success' 
-                ? '1px solid rgba(16, 185, 129, 0.2)' 
-                : '1px solid rgba(239, 68, 68, 0.2)';
+        function showSuccess() {
+            formSuccess.style.display = 'block';
+            formError.style.display = 'none';
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
             setTimeout(() => {
-                formMessage.style.display = 'none';
+                formSuccess.style.display = 'none';
             }, 5000);
         }
         
-        // Animation au scroll
+        function showError(message) {
+            formError.textContent = '❌ ' + message;
+            formError.style.display = 'block';
+            formSuccess.style.display = 'none';
+            formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            setTimeout(() => {
+                formError.style.display = 'none';
+            }, 5000);
+        }
+        
+        function hideMessages() {
+            formSuccess.style.display = 'none';
+            formError.style.display = 'none';
+        }
+        
+        // ========== ANIMATIONS SCROLL ==========
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1456,7 +1478,6 @@
             });
         }, observerOptions);
         
-        // Observer les éléments animés
         document.querySelectorAll('.animate-slide-up').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
@@ -1464,8 +1485,12 @@
             observer.observe(el);
         });
         
-        // Chargement initial
+        // ========== INITIALISATION ==========
         document.addEventListener('DOMContentLoaded', () => {
+            // Année actuelle dans le footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Animation d'entrée
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.3s ease';
             
@@ -1473,10 +1498,9 @@
                 document.body.style.opacity = '1';
             }, 100);
             
-            // Assurer que le footer mobile est visible
+            // Vérifier le footer mobile
             toggleMobileFooter();
         });
     </script>
 </body>
-
 </html>
